@@ -56,7 +56,7 @@ class CaramelDecorator:
 
 def main():
     coffee = Coffee()
-    
+
     milk_coffee = MilkDecorator(coffee)
     sugar_milk_coffee = MilkDecorator(SugarDecorator(coffee))
     caramel_combo = CaramelDecorator(MilkDecorator(SugarDecorator(coffee)))
