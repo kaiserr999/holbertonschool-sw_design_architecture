@@ -2,7 +2,7 @@
 """
 Observer pattern - Adding a new subscriber
 """
-from typing import Callable, Dict, Protocol, Set
+from typing import Callable, Dict, Protocol, Set, Optional
 
 
 class Observer(Protocol):
@@ -12,9 +12,9 @@ class Observer(Protocol):
 
 class NewsSubject:
     def __init__(self):
-        self._observers: Dict[Observer, Set[str] | None] = {}
+        self._observers: Dict[Observer, Optional[Set[str]]] = {}
 
-    def subscribe(self, observer: Observer, topics: Set[str] | None = None) -> None:
+    def subscribe(self, observer: Observer, topics: Optional[Set[str]] = None) -> None:
         self._observers[observer] = topics
 
     def unsubscribe(self, observer: Observer) -> None:
