@@ -14,7 +14,9 @@ class NewsSubject:
     def __init__(self):
         self._observers: Dict[Observer, Optional[Set[str]]] = {}
 
-    def subscribe(self, observer: Observer, topics: Optional[Set[str]] = None) -> None:
+    def subscribe(
+        self, observer: Observer, topics: Optional[Set[str]] = None
+    ) -> None:
         self._observers[observer] = topics
 
     def unsubscribe(self, observer: Observer) -> None:
@@ -44,7 +46,7 @@ class SmsObserver:
 
 def main():
     subject = NewsSubject()
-    
+
     log_obs = LogObserver()
     email_obs = EmailObserver()
     sms_obs = SmsObserver()
